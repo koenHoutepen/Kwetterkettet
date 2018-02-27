@@ -1,5 +1,6 @@
 package domain;
 
+import java.security.InvalidParameterException;
 import java.util.Date;
 import java.util.List;
 
@@ -60,7 +61,15 @@ public class Kweet {
     }
 
     public Kweet(String owner, String message, Date postDate, List<String> likes, List<String> mentions, List<String> trends) {
-
+        if (owner.isEmpty()) {
+            throw new InvalidParameterException("username has to be entered");
+        }
+        if (message.isEmpty() || message.length() > 140) {
+            throw new InvalidParameterException("message is invalid");
+        }
+        if(mentions == null || trends == null || likes == null){
+            throw new InvalidParameterException("Kweet creation failed");
+        }
         this.owner = owner;
         this.message = message;
         this.postDate = postDate;

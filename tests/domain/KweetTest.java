@@ -1,13 +1,17 @@
 package domain;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
-public class KweetTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.*;
 
-    public void setUp() throws Exception {
-        super.setUp();
+class KweetTest {
+
+    @BeforeEach
+    void setUp() {
     }
 
-    public void tearDown() throws Exception {
+    @AfterEach
+    void tearDown() {
     }
 }
